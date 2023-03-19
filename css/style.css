@@ -15,14 +15,14 @@ body {
 	margin: 0 auto;
 }
 
-.content {
+.game-content {
 	padding: 200px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.box {
+.game-field {
 	border: 2px solid #000;
 	width: 500px;
 	height: 500px;
@@ -30,30 +30,30 @@ body {
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
-.box__item {
+.element-field {
 	border: 2px solid #000;
 	position: relative;
 	cursor: pointer;
 }
 
-.box__item:hover {
+.element-field:hover {
 	background: #0000001c;
 }
 
-.item {
+.game-element {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.item_0 {
+.game-element_0 {
 	width: 120px;
 	height: 120px;
 	border: 10px solid #ff0000;
 	border-radius: 50%;
 }
-.item_x {
+.game-element_x {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -62,7 +62,7 @@ body {
 	width: 100%;
 	background: #0000ff;
 }
-.item_x::after {
+.game-element_x::after {
 	content: "";
 	position: absolute;
 	top: 50%;
