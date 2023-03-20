@@ -1,15 +1,13 @@
 let doc = document;
 
 let elementField = doc.querySelectorAll('.element-field');
-let gameElement = doc.querySelectorAll('.game-element');
 let resultGame = doc.querySelector('.result-game');
 
-let x, o;
-
 let playerTurn = true;
-let counterGameElement = 0;
-let choicePlayer1 = 0;
-let choicePlayer2 = 0;
+let elementX = `<div class="game-element_x"></div>`;
+let elementO = `<div class="game-element_o"></div>`;
+let counterElement = 0;
+
 let winningOptions = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -23,21 +21,21 @@ let winningOptions = [
 
 for (let i = 0; i < elementField.length; i++) {
 	elementField[i].onclick = function () {
-		if (gameElement[i].classList.contains('game-element_x') || gameElement[i].classList.contains('game-element_o')) {
+		if (this.innerHTML) {
 			return;
 		}
 
 		if (playerTurn) {
-			gameElement[i].classList.add('game-element_x');
+			this.innerHTML = elementX;
 		} else {
-			gameElement[i].classList.add('game-element_o');
+			this.innerHTML = elementO;
 		}
 
 		playerTurn = !playerTurn;
 
-		counterGameElement++;
+		counterElement++;
 
-		if (counterGameElement == gameElement.length) {
+		if (counterElement == elementField.length) {
 			resultGame.innerHTML = `<span>Game Over</span>`;
 		}
 	}
@@ -51,5 +49,5 @@ for (let i = 0; i < elementField.length; i++) {
 *1. Каждый клик должен давать сначала крестик, потом нолик, по очереди
 *2. Если в ячейке уже стоит какой то выбор, туда уже ничего записать нельзя
 *3. Когда мы заполнили все поля, нам говорят что игра окончена
-4. Проверяем победителя
+!4. Проверяем победителя
 */
