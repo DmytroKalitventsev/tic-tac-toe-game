@@ -16,7 +16,7 @@ body {
 }
 
 .game-content {
-	padding: 200px;
+	padding: 100px 250px 250px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
