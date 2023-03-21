@@ -23,9 +23,7 @@ function startGame() {
 			if (this.innerHTML) {
 				return;
 			}
-
-			playerWalks.innerText = playerX;
-
+			
 			if (playerTurn) {
 				this.innerHTML = gameElementX;
 				playerWalks.innerText = playerO;
@@ -45,7 +43,7 @@ function startGame() {
 	playerTurn = true;
 	counterElement = 0;
 	resultGame.innerText = '';
-	playerWalks.innerText = '';
+	playerWalks.innerText = playerX;
 }
 
 function resetGame() {
