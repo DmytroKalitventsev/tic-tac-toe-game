@@ -5,7 +5,7 @@ let playerWalks = doc.querySelector('.player-walk');
 let resultGame = doc.querySelector('.result-game');
 let btnResetGame = doc.querySelector('.reset-game');
 
-let playerTurn = true;
+let playerTurn = 0;
 let playerX = 'Player X';
 let playerO = 'Player O';
 let gameElementX = `<div class="game-element_x"></div>`;
@@ -24,7 +24,7 @@ function startGame() {
 				return;
 			}
 			
-			if (playerTurn) {
+			if (playerTurn % 2 == 0) {
 				this.innerHTML = gameElementX;
 				playerWalks.innerText = playerO;
 			} else {
@@ -32,16 +32,13 @@ function startGame() {
 				playerWalks.innerText = playerX;
 			}
 
-			playerTurn = !playerTurn;
-
-			counterElement++;
+			playerTurn++;
 
 			showResultGame();
 		}
 	}
 
-	playerTurn = true;
-	counterElement = 0;
+	playerTurn = 0;
 	resultGame.innerText = '';
 	playerWalks.innerText = playerX;
 }
@@ -103,7 +100,7 @@ function showResultGame() {
 		resultGame.innerText = `${playerX} wins!`;
 	} else if (winner == playerO) {
 		resultGame.innerText = `${playerO} wins!`;
-	} else if (counterElement == elementField.length) {
+	} else if (playerTurn == elementField.length) {
 		resultGame.innerText = 'Draw!';
 	}
 }
